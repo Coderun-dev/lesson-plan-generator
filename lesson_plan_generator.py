@@ -6,15 +6,19 @@ openai.api_key = "sk-proj-WwQ6F--7Sj6I_IOeBrYa4YNSMuXEQOLlXMWIOjZfR8bWz5VKakzRM1
 
 # Function to generate lesson plan
 def generate_lesson_plan(prompt):
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[
-            {"role": "user", "content": prompt}
-        ],
-        max_tokens=500,
-        temperature=0.7
-    )
-    return response.choices[0].message['content'].strip()
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=500,
+            temperature=0.7
+        )
+        return response.choices[0].message['content'].strip()
+    except Exception as e:
+        st.error(f"Error generating lesson plan: {str(e)}")
+        return None
 
 # Streamlit app
 def main():
