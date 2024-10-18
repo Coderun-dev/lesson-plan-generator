@@ -2,15 +2,15 @@ import streamlit as st
 import openai
 
 # OpenAI API Key
-openai.api_key = "(api_key = "[ENTER OPENAI API KEY HERE]")
+openai.api_key = "your_openai_api_key"
 # Function to generate lesson plan
 def generate_lesson_plan(prompt):
     try:
         response = openai.ChatCompletion.create(
             model="gpt-4",
             messages=[
-                {"role": "user", "content": prompt}
-            ],
+            {"role": "user", "content": prompt}
+        ],
             max_tokens=500,
             temperature=0.7
         )
@@ -27,7 +27,7 @@ def main():
     grade = st.text_input('Grade', "5th Grade")
     subject = st.text_input('Subject', "Science")
     learning_objectives = st.text_area('Learning Objectives', "Understand the water cycle")
-    teaching_style = st.text_input('Teaching Style', "Inquiry-based learning")
+    teaching_style = st.text_input('Teaching Style', "knowledge building")
     assessment_content = st.text_area('Assessment Content', "Quiz on water cycle, Group Project")
     materials = st.text_area('Materials', "Water cycle model, Diagrams")
 
@@ -63,8 +63,7 @@ def main():
             assessment_content=teacher_input["assessment_content"],
             materials=teacher_input["materials"]
         )
-
-        # Generate and display the lesson plan
+       # Generate and display the lesson plan
         lesson_plan = generate_lesson_plan(prompt)
         st.write(lesson_plan)
 
