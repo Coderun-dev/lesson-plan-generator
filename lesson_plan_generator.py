@@ -2,8 +2,7 @@ import streamlit as st
 import openai
 
 # OpenAI API Key
-openai.api_key = "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"
-
+openai.api_key = "(api_key = "[ENTER OPENAI API KEY HERE]")
 # Function to generate lesson plan
 def generate_lesson_plan(prompt):
     try:
