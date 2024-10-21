@@ -1,8 +1,11 @@
 import streamlit as st
 import openai
 
+# Access the API key from Streamlit secrets
+api_key = st.secrets["api_keys"]["api_key"]
+
 # OpenAI API Key
-openai.api_key = "[ENTER OPENAI API KEY HERE]"
+openai.api_key = api_key
 # Function to generate lesson plan
 def generate_lesson_plan(prompt):
     try:
