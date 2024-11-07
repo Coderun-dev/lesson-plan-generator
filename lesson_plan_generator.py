@@ -49,7 +49,7 @@ def main():
         Topic: {topic}
         Learning Objectives: {learning_objectives}
 
-        Please generate a detailed lesson plan including Opening, Introduction, Guided Practice, Independent Practice, Closing, Assessment, Extension Activity, and Homework.
+        Please generate a detailed lesson plan including Grade, Subject, Topic, Opening, Introduction, Guided Practice, Independent Practice, Closing, Assessment, Extension Activity, and Homework.
         """
 
         prompt = prompt_template.format(
